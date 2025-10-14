@@ -3,10 +3,9 @@
  * Student Portal Logout - Hiticx
  */
 
-// Start session
-if (!session_id()) {
-    session_start();
-}
+require_once __DIR__ . '/portal-bootstrap.php';
+
+hiticx_portal_bootstrap();
 
 // Destroy all session data
 session_destroy();
@@ -14,4 +13,3 @@ session_destroy();
 // Redirect to login page
 header('Location: portal-login.php');
 exit;
-?>

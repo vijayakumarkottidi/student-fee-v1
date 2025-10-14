@@ -4,29 +4,9 @@
  * Complete implementation
  */
 
-// Simple error reporting
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+require_once __DIR__ . '/portal-bootstrap.php';
 
-// Correct WordPress path for your server
-$wp_load_path = '/home/hitiypom/public_html/wp-load.php';
-
-if (file_exists($wp_load_path)) {
-    require_once($wp_load_path);
-} else {
-    die('
-    <div style="text-align: center; padding: 50px; font-family: Arial, sans-serif;">
-        <h1>🚧 Configuration Error</h1>
-        <p>WordPress not found at: ' . $wp_load_path . '</p>
-        <p>Please contact the administrator.</p>
-    </div>
-    ');
-}
-
-// Start session
-if (!session_id()) {
-    session_start();
-}
+hiticx_portal_bootstrap();
 
 // Check if student is logged in
 if (!isset($_SESSION['sfm_student_id'])) {
