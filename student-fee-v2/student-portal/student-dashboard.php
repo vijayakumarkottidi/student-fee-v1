@@ -4,9 +4,39 @@
  * Redesigned layout that syncs with admin data
  */
 
+// Simple error reporting
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Correct WordPress path for your server
+$wp_load_path = '/home/hitiypom/public_html/wp-load.php';
+
+if (file_exists($wp_load_path)) {
+    require_once $wp_load_path;
+} else {
+    die('
+    <div style="text-align: center; padding: 50px; font-family: Arial, sans-serif;">
+        <h1>🚧 Configuration Error</h1>
+        <p>WordPress not found at: ' . $wp_load_path . '</p>
+        <p>Please contact the administrator.</p>
+    </div>
+    ');
+}
+
+// Start PHP session if not already active
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Load the portal bootstrap file
 require_once __DIR__ . '/portal-bootstrap.php';
 
-hiticx_portal_bootstrap();
+// Safely call bootstrap function
+if (function_exists('hiticx_portal_bootstrap')) {
+    hiticx_portal_bootstrap();
+} else {
+    error_log('hiticx_portal_bootstrap() not found. Check portal-bootstrap.php');
+}
 
 // Check if student is logged in
 if (!isset($_SESSION['sfm_student_id'])) {
@@ -53,6 +83,7 @@ foreach ($installments as $installment) {
 $total_installments = count($installments);
 $remaining = max(0, $student->course_fee - $total_paid);
 $payment_progress = $student->course_fee > 0 ? min(100, round(($total_paid / $student->course_fee) * 100)) : 0;
+
 $course_progress_value = null;
 if (isset($student->course_progress) && $student->course_progress !== '') {
     $course_progress_value = max(0, min(100, (int) round($student->course_progress)));
@@ -92,6 +123,7 @@ $estimated_completion_label = $estimated_completion_date === 'To be confirmed'
     ? $estimated_completion_date
     : 'Est. ' . $estimated_completion_date;
 
+// Build student initials
 $student_initials = '';
 if (!empty($student->student_name)) {
     $name_parts = preg_split('/\s+/', trim($student->student_name));
@@ -106,6 +138,7 @@ if (!empty($student->student_name)) {
 $student_initials = $student_initials ?: 'H';
 $status_label = !empty($student->status) ? ucwords($student->status) : 'Active';
 
+// Define course timeline steps
 $timeline_steps = [
     [
         'label' => 'Enrollment',
