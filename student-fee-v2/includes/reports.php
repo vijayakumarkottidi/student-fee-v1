@@ -158,7 +158,7 @@ function sfm_pro_generate_csv($filename, $headers, $students, $report_type) {
                 
                 // If no overdue installments for this student, skip
                 if (!$has_overdue) {
-                    continue;
+                    continue 2;
                 }
                 break;
                 
@@ -277,7 +277,7 @@ function sfm_pro_generate_excel($filename, $headers, $students, $report_type) {
                 
                 // If no overdue installments for this student, skip
                 if (!$has_overdue) {
-                    continue;
+                    continue 2;
                 }
                 break;
                 
