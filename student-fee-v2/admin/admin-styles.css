@@ -1,0 +1,267 @@
+/* Metrics Grid */
+.sfm-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.sfm-metric-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #ccd0d4;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-top: 4px solid #0073aa;
+}
+
+.sfm-metric-card:nth-child(2) { border-top-color: #46b450; }
+.sfm-metric-card:nth-child(3) { border-top-color: #f39c12; }
+.sfm-metric-card:nth-child(4) { border-top-color: #e74c3c; }
+.sfm-metric-card:nth-child(5) { border-top-color: #3498db; }
+
+.sfm-metric-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0073aa;
+    margin: 8px 0;
+}
+
+.sfm-metric-label {
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Table Styling */
+.sfm-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.sfm-table th {
+    background: #f8f9fa;
+    padding: 12px;
+    border-bottom: 1px solid #ccd0d4;
+    font-weight: 600;
+    text-align: left;
+}
+
+.sfm-table td {
+    padding: 12px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.sfm-table tr:last-child td {
+    border-bottom: none;
+}
+
+.sfm-table tr:hover {
+    background: #fafafa;
+}
+
+/* Expandable Rows */
+.sfm-expandable-row {
+    display: none;
+}
+
+.sfm-expandable-row.expanded {
+    display: table-row;
+}
+
+.sfm-expandable-content {
+    padding: 20px;
+    background: #fafafa;
+    border-left: 4px solid #0073aa;
+}
+
+.sfm-student-id {
+    cursor: pointer;
+    color: #0073aa;
+    font-weight: 600;
+}
+
+.sfm-student-id:hover {
+    color: #005a87;
+    text-decoration: underline;
+}
+
+/* Badges */
+.sfm-badge {
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 12px;
+    display: inline-block;
+}
+
+.badge-paid { background: #e6f4ea; color: #1b6b2b; }
+.badge-overdue { background: #fff2f2; color: #a12929; }
+.badge-due { background: #fff8e6; color: #8a5a00; }
+.badge-ongoing { background: #eef7ff; color: #0b4a7a; }
+
+/* Installments */
+.sfm-installments {
+    margin: 8px 0;
+}
+
+.sfm-installment-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    margin: 8px 0;
+    background: #fff;
+    border-radius: 6px;
+    border: 1px solid #e1e1e1;
+}
+
+.sfm-installment-info {
+    flex: 1;
+}
+
+.sfm-installment-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.sfm-install-input {
+    width: 100px;
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Edit Name */
+.sfm-edit-name {
+    background: none;
+    border: none;
+    color: #0073aa;
+    cursor: pointer;
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+.sfm-edit-name:hover {
+    color: #005a87;
+}
+
+.sfm-name-input {
+    padding: 4px 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 200px;
+}
+
+.sfm-save-name {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.sfm-cancel-name {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+/* Delete Button */
+.sfm-delete-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.sfm-delete-btn:hover {
+    background: #c82333;
+}
+
+/* Loading States */
+.sfm-loading {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-size: 16px;
+}
+
+.sfm-empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 8px;
+}
+
+.sfm-empty-state h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Overdue student styles */
+.sfm-overdue-student {
+    background-color: #fff2f2 !important;
+    border-left: 4px solid #e74c3c !important;
+}
+
+.sfm-overdue-student:hover {
+    background-color: #ffe6e6 !important;
+}
+
+.sfm-overdue-name {
+    color: #e74c3c !important;
+    font-weight: bold;
+}
+
+.sfm-overdue-badge {
+    color: #e74c3c;
+    font-weight: bold;
+    margin-left: 5px;
+    font-size: 12px;
+}
+
+.sfm-overdue-installment {
+    background: #fff2f2 !important;
+    border-left: 4px solid #e74c3c !important;
+}
+
+/* Update badge colors */
+.badge-overdue { 
+    background: #fff2f2 !important; 
+    color: #a12929 !important;
+    border: 1px solid #e74c3c;
+}
+
+.badge-paid { 
+    background: #e6f4ea !important; 
+    color: #1b6b2b !important; 
+}
+
+.badge-due { 
+    background: #fff8e6 !important; 
+    color: #8a5a00 !important; 
+}
+
+.badge-ongoing { 
+    background: #eef7ff !important; 
+    color: #0b4a7a !important; 
+}

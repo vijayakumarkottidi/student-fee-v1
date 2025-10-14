@@ -1,0 +1,48 @@
+/* Student Portal Styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .student-info {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .installments-table {
+        overflow-x: auto;
+    }
+    
+    .installments-table table {
+        min-width: 600px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .logout-btn, .header-actions {
+        display: none;
+    }
+    
+    body {
+        background: white;
+        padding: 0;
+    }
+    
+    .info-card, .dashboard-header, .installments-table {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+}
