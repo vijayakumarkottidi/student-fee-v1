@@ -24,7 +24,7 @@ require_once SFM_PLUGIN_DIR . 'includes/email-system.php';
 require_once SFM_PLUGIN_DIR . 'includes/reports.php';
 require_once SFM_PLUGIN_DIR . 'includes/helpers.php';
 require_once SFM_PLUGIN_DIR . 'includes/ajax-handlers.php';
-require_once SFM_PLUGIN_DIR . 'includes/admin-pages.php';
+require_once SFM_PLUGIN_DIR . 'admin/admin-pages.php';
 
 // Activation and security checks
 register_activation_hook(__FILE__, 'sfm_pro_activation_checks');
@@ -132,8 +132,8 @@ class StudentFeeManagerPRO {
     
     public function enqueue_admin_assets($hook) {
         if (strpos($hook, 'sfm-pro') !== false) {
-            wp_enqueue_style('sfm-admin-styles', SFM_PLUGIN_URL . 'assets/admin-styles.css', array(), SFM_PLUGIN_VERSION);
-            wp_enqueue_script('sfm-admin-scripts', SFM_PLUGIN_URL . 'assets/admin-scripts.js', array('jquery'), SFM_PLUGIN_VERSION, true);
+            wp_enqueue_style('sfm-admin-styles', SFM_PLUGIN_URL . 'admin/admin-styles.css', array(), SFM_PLUGIN_VERSION);
+            wp_enqueue_script('sfm-admin-scripts', SFM_PLUGIN_URL . 'admin/admin-scripts.js', array('jquery'), SFM_PLUGIN_VERSION, true);
             
             // Localize script for AJAX
             wp_localize_script('sfm-admin-scripts', 'sfm_ajax', array(
